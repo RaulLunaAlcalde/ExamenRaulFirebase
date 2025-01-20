@@ -15,8 +15,11 @@ interface ProductesDAO {
     @Query("SELECT * FROM products ORDER BY name DESC")
     fun obtenirAlumne(): LiveData<List<Producte>>
 
-    @Query("UPDATE products SET name = :nom, price = :preu where id = :id")
-    fun modificarAlumne(nom: String, preu: Int, id: Long)
+    @Query("UPDATE products SET name = :nom, price = :preu where name = :nom")
+    fun modificarProducte(nom: String, preu: Int)
+
+    @Query("DELETE FROM products WHERE name = :nom")
+    fun eliminarProducte(nom: String)
 
 
 }

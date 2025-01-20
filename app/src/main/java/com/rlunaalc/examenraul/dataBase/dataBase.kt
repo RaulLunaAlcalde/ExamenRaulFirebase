@@ -35,25 +35,25 @@ abstract class dataBase : RoomDatabase() {
 
         // todo funcion para crear base de datos en caso de que no queramos tener datos
 
-        private fun buildDatabase(context: Context): dataBase {
+        /*private fun buildDatabase(context: Context): dataBase {
             return Room.databaseBuilder(
                 context.applicationContext,
                 dataBase::class.java,
                 "productes_database"
             )
                 .build()
-        }
+        }*/
 
         // todo funcion para importar una base de datos con datos dentro
 
-        /*private fun buildDatabase(context: Context): dataBase {
+        private fun buildDatabase(context: Context): dataBase {
             return Room.databaseBuilder(
                 context.applicationContext,
                 dataBase::class.java,
                 "cotxes_database"
             )
-                .createFromAsset("database/alumnes_database.db").build()
-        }*/
+                .createFromAsset("database/productes_database.db").build()
+        }
 
     }
 

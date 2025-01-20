@@ -17,4 +17,6 @@
     <string name="inserir">Inserir</string>
     <string name="preu">Preu</string>
     <string name="nom">Nom</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="modificar">Modificar</string>
 </resources>

@@ -41,12 +41,21 @@ class Repositori {
             return producte
         }
 
-        fun modificarAlumne(context: Context, nom: String, preu: Int, id: Long) {
+        fun modificarProducte(context: Context, nom: String, preu: Int) {
             repositori_database = initializeDB(context)
 
             CoroutineScope(IO).launch {
-                repositori_database!!.productesDAO().modificarAlumne(nom, preu, id)
+                repositori_database!!.productesDAO().modificarProducte(nom, preu)
             }
         }
+
+        fun eliminarProducte(context: Context, nom: String){
+            repositori_database = initializeDB(context)
+
+            CoroutineScope(IO).launch {
+                repositori_database!!.productesDAO().eliminarProducte(nom)
+            }
+        }
+
     }
 }

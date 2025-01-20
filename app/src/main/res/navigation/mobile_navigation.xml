@@ -38,7 +38,7 @@
         tools:layout="@layout/fragment_inserir" />
     <fragment
         android:id="@+id/modificarFragment"
-        android:name="com.rlunaalc.examenraul.ModificarFragment"
+        android:name="com.rlunaalc.examenraul.modificar.ModificarFragment"
         android:label="fragment_modificar"
         tools:layout="@layout/fragment_modificar" />
     <fragment
