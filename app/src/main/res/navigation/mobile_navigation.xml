@@ -24,9 +24,13 @@
         tools:layout="@layout/fragment_slideshow" />
     <fragment
         android:id="@+id/llistarFragment"
-        android:name="com.rlunaalc.examenraul.LlistarFragment"
+        android:name="com.rlunaalc.examenraul.llistar.LlistarFragment"
         android:label="fragment_llistar"
-        tools:layout="@layout/fragment_llistar" />
+        tools:layout="@layout/fragment_llistar">
+        <action
+            android:id="@+id/action_llistarFragment_to_modificarFragment"
+            app:destination="@id/modificarFragment" />
+    </fragment>
     <fragment
         android:id="@+id/inserirFragment"
         android:name="com.rlunaalc.examenraul.InserirFragment"
