@@ -6,12 +6,12 @@ import com.rlunaalc.examenraul.Repositori
 
 class ModificarViewModel : ViewModel() {
 
-    fun modificarProducte(context: Context, nom: String, preu: Int){
-        Repositori.modificarProducte(context, nom, preu)
+    fun modificarProducte(context: Context, nom: String, preu: Int, id: Long){
+        Repositori.modificarProducte(context, nom, preu, id)
     }
 
-    fun eliminarProducte(context: Context, nom: String, preu: Int){
-        Repositori.eliminarProducte(context, nom)
+    fun eliminarProducte(context: Context, id: Long){
+        Repositori.eliminarProducte(context, id)
     }
 
 }

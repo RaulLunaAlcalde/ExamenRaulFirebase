@@ -12,14 +12,14 @@ interface ProductesDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun afegirAlumne(producte: Producte)
 
-    @Query("SELECT * FROM products ORDER BY name DESC")
+    @Query("SELECT * FROM products ORDER BY id DESC")
     fun obtenirAlumne(): LiveData<List<Producte>>
 
-    @Query("UPDATE products SET name = :nom, price = :preu where name = :nom")
-    fun modificarProducte(nom: String, preu: Int)
+    @Query("UPDATE products SET name = :nom, price = :preu where id = :id")
+    fun modificarProducte(nom: String, preu: Int, id: Long)
 
-    @Query("DELETE FROM products WHERE name = :nom")
-    fun eliminarProducte(nom: String)
+    @Query("DELETE FROM products WHERE id = :id")
+    fun eliminarProducte(id: Long)
 
 
 }
