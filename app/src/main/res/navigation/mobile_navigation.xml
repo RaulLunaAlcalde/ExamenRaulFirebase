@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/inserirFragment"
-        android:name="com.rlunaalc.examenraul.InserirFragment"
+        android:name="com.rlunaalc.examenraul.inserir.InserirFragment"
         android:label="fragment_inserir"
         tools:layout="@layout/fragment_inserir" />
     <fragment
