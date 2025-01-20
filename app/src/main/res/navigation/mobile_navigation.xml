@@ -22,4 +22,24 @@
         android:name="com.rlunaalc.examenraul.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/llistarFragment"
+        android:name="com.rlunaalc.examenraul.LlistarFragment"
+        android:label="fragment_llistar"
+        tools:layout="@layout/fragment_llistar" />
+    <fragment
+        android:id="@+id/inserirFragment"
+        android:name="com.rlunaalc.examenraul.InserirFragment"
+        android:label="fragment_inserir"
+        tools:layout="@layout/fragment_inserir" />
+    <fragment
+        android:id="@+id/modificarFragment"
+        android:name="com.rlunaalc.examenraul.ModificarFragment"
+        android:label="fragment_modificar"
+        tools:layout="@layout/fragment_modificar" />
+    <fragment
+        android:id="@+id/contacteFragment"
+        android:name="com.rlunaalc.examenraul.ContacteFragment"
+        android:label="fragment_contacte"
+        tools:layout="@layout/fragment_contacte" />
 </navigation>

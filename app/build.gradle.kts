@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.rlunaalc.examenraul"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.rlunaalc.examenraul"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -35,6 +35,9 @@ android {
     }
     buildFeatures {
         viewBinding = true
+    }
+    dataBinding{
+        enable = true
     }
 }
 
