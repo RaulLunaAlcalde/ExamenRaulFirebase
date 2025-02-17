@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/llistarFragment">
+    app:startDestination="@+id/loginFragment">
 
     <fragment
         android:id="@+id/nav_home"
@@ -46,4 +46,14 @@
         android:name="com.rlunaalc.examenraul.ContacteFragment"
         android:label="fragment_contacte"
         tools:layout="@layout/fragment_contacte" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.rlunaalc.examenraul.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.rlunaalc.examenraul.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
 </navigation>

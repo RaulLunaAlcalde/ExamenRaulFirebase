@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "545812905968",
+    "project_id": "examen-3f31d",
+    "storage_bucket": "examen-3f31d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545812905968:android:6699b4b836c564e6ece735",
+        "android_client_info": {
+          "package_name": "com.rlunaalc.examenraul"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNq1NvECRkJuBZ9vGUmCpw7-kxfmNOWkc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
