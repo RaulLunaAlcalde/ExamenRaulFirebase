@@ -7,7 +7,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
-interface ProductesDAO {
+interface roductesDAO {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun afegirAlumne(producte: Producte)

@@ -22,7 +22,7 @@ class ModificarFragment : Fragment() {
         binding = FragmentModificarBinding.inflate(inflater, container, false)
         modificarViewModel = ViewModelProvider(this)[ModificarViewModel::class.java]
 
-        binding.modificarButton.setOnClickListener {
+        /*binding.modificarButton.setOnClickListener {
             val nom = binding.nomInput.editText?.text.toString()
             val preu = binding.preuInput.editText?.text.toString().toIntOrNull()
             val id = binding.idInput.editText?.text.toString().toLongOrNull()
@@ -42,7 +42,7 @@ class ModificarFragment : Fragment() {
             } else {
                 Toast.makeText(requireContext(), "Emplena els camps!", Toast.LENGTH_SHORT).show()
             }
-        }
+        }*/
 
 
         return binding.root

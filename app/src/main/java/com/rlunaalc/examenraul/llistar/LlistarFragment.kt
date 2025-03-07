@@ -1,5 +1,7 @@
 package com.rlunaalc.examenraul.llistar
 
+import ProducteAdapter
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,32 +12,59 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.rlunaalc.examenraul.ProducteAdapter
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.firestore.FirebaseFirestore
 import com.rlunaalc.examenraul.R
+import com.rlunaalc.examenraul.dataBase.Producte
+import com.rlunaalc.examenraul.databinding.FragmentInserirBinding
 import com.rlunaalc.examenraul.databinding.FragmentLlistarBinding
 
 class LlistarFragment : Fragment() {
     private lateinit var binding: FragmentLlistarBinding
     private lateinit var llistarViewModel: LlistarViewModel
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var producteAdapter: ProducteAdapter
+    private val productesList = mutableListOf<Producte>()
+    private val db = FirebaseFirestore.getInstance()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         binding = FragmentLlistarBinding.inflate(inflater, container, false)
 
-        llistarViewModel = ViewModelProvider(this)[LlistarViewModel::class.java]
-        llistarViewModel.llistar_productes(requireContext())
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        val view = inflater.inflate(R.layout.fragment_llistar, container, false)
 
-        llistarViewModel.llistat_productes?.observe(viewLifecycleOwner, Observer {
-                producteLlistat -> binding.recyclerView.adapter = ProducteAdapter(producteLlistat)
-        })
+        recyclerView = view.findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        producteAdapter = ProducteAdapter(productesList)
+        recyclerView.adapter = producteAdapter
+
+        carregarProductes()
 
         binding.button.setOnClickListener {
             findNavController().navigate(R.id.inserirFragment)
         }
 
         return binding.root
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private fun carregarProductes() {
+        db.collection("productos")
+            .get()
+            .addOnSuccessListener { documents ->
+                productesList.clear()
+                for (document in documents) {
+                    val producte = document.toObject(Producte::class.java)
+                    productesList.add(producte)
+                }
+                producteAdapter.notifyDataSetChanged()
+            }
+            .addOnFailureListener { exception ->
+                Toast.makeText(requireContext(), "Error: ${exception.message}", Toast.LENGTH_SHORT).show()
+            }
     }
 }
