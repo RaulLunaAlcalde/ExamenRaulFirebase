@@ -6,14 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import com.rlunaalc.examenraul.R
 import com.rlunaalc.examenraul.databinding.FragmentModificarBinding
-
 
 class ModificarFragment : Fragment() {
 
     private lateinit var binding: FragmentModificarBinding
     private lateinit var modificarViewModel: ModificarViewModel
+
+    private val args: ModificarFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,31 +27,30 @@ class ModificarFragment : Fragment() {
         binding = FragmentModificarBinding.inflate(inflater, container, false)
         modificarViewModel = ViewModelProvider(this)[ModificarViewModel::class.java]
 
-        /*binding.modificarButton.setOnClickListener {
-            val nom = binding.nomInput.editText?.text.toString()
-            val preu = binding.preuInput.editText?.text.toString().toIntOrNull()
-            val id = binding.idInput.editText?.text.toString().toLongOrNull()
+        val producteId = args.producteId
 
-            if (!nom.isNullOrBlank() && preu != null && id != null) {
-                modificarViewModel.modificarProducte(requireContext(), nom, preu, id)
+        binding.idInput.editText?.setText(producteId)
+
+        binding.modificarButton.setOnClickListener {
+            val nom = binding.nomInput.editText?.text.toString()
+            val preu = binding.preuInput.editText?.text.toString().toDoubleOrNull()
+
+            if (!nom.isNullOrBlank() && preu != null) {
+                modificarViewModel.actualizarProducto(requireContext(), producteId, nom, preu)
+                findNavController().navigate(R.id.llistarFragment)
             } else {
                 Toast.makeText(requireContext(), "Emplena els camps!", Toast.LENGTH_SHORT).show()
             }
         }
 
         binding.eliminarButton.setOnClickListener {
-            val id = binding.idInput.editText?.text.toString().toLongOrNull()
-
-            if (id != null) {
-                modificarViewModel.eliminarProducte(requireContext(), id)
-            } else {
+            if (producteId.isNullOrBlank()) {
                 Toast.makeText(requireContext(), "Emplena els camps!", Toast.LENGTH_SHORT).show()
+            } else {
+                modificarViewModel.eliminarProducto(requireContext(), producteId)
             }
-        }*/
-
+        }
 
         return binding.root
     }
-
-
 }

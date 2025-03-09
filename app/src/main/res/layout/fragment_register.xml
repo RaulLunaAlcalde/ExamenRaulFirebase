@@ -5,10 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@android:color/white"
     tools:context=".RegisterFragment">
 
-    <!-- Icono de ubicación -->
     <ImageView
         android:id="@+id/icon_location"
         android:layout_width="60dp"
@@ -18,13 +17,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Título -->
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Registre"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_marginTop="20dp"
@@ -32,15 +30,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Campo de Email -->
     <EditText
         android:id="@+id/email_input"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:hint="Email"
-        android:textColorHint="@color/gray"
-        android:background="@drawable/edit_text_background"
-        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/darker_gray"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
         android:padding="10dp"
         android:inputType="textEmailAddress"
         app:layout_constraintTop_toBottomOf="@id/title"
@@ -49,15 +46,14 @@
         android:layout_marginTop="20dp"
         android:layout_marginHorizontal="20dp"/>
 
-    <!-- Campo de Password -->
     <EditText
         android:id="@+id/password_input"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:hint="Password"
-        android:textColorHint="@color/gray"
-        android:background="@drawable/edit_text_background"
-        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/darker_gray"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
         android:padding="10dp"
         android:inputType="textPassword"
         app:layout_constraintTop_toBottomOf="@id/email_input"
@@ -66,16 +62,14 @@
         android:layout_marginTop="15dp"
         android:layout_marginHorizontal="20dp"/>
 
-
-    <!-- Campo de Username -->
     <EditText
         android:id="@+id/username_input"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:hint="Username"
-        android:textColorHint="@color/gray"
-        android:background="@drawable/edit_text_background"
-        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/darker_gray"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
         android:padding="10dp"
         android:inputType="textPersonName"
         app:layout_constraintTop_toBottomOf="@id/password_input"
@@ -84,20 +78,19 @@
         android:layout_marginTop="15dp"
         android:layout_marginHorizontal="20dp"/>
 
-    <!-- Botón de Iniciar Sesión -->
     <Button
         android:id="@+id/login_button"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:text="Iniciar Sessió"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
+        android:background="@android:color/darker_gray"
         android:layout_marginTop="20dp"
         app:layout_constraintTop_toBottomOf="@id/username_input"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="20dp"/>
 
-    <!-- Links de Política y Términos -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

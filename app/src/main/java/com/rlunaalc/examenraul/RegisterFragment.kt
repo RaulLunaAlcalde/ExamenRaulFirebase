@@ -31,7 +31,7 @@ class RegisterFragment : Fragment() {
                 firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener{
                     if (it.isSuccessful){
                         Toast.makeText(requireContext(), "User created successfully!", Toast.LENGTH_SHORT).show()
-                        findNavController().navigate(R.id.nav_home)
+                        findNavController().navigate(R.id.llistarFragment)
                     }else {
                         Toast.makeText(requireContext(), it.exception.toString(), Toast.LENGTH_SHORT).show()
                     }

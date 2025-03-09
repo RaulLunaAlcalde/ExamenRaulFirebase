@@ -21,26 +21,19 @@ import com.rlunaalc.examenraul.databinding.FragmentLlistarBinding
 
 class LlistarFragment : Fragment() {
     private lateinit var binding: FragmentLlistarBinding
-    private lateinit var llistarViewModel: LlistarViewModel
-    private lateinit var recyclerView: RecyclerView
     private lateinit var producteAdapter: ProducteAdapter
     private val productesList = mutableListOf<Producte>()
     private val db = FirebaseFirestore.getInstance()
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding = FragmentLlistarBinding.inflate(inflater, container, false)
 
-        val view = inflater.inflate(R.layout.fragment_llistar, container, false)
-
-        recyclerView = view.findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         producteAdapter = ProducteAdapter(productesList)
-        recyclerView.adapter = producteAdapter
+        binding.recyclerView.adapter = producteAdapter
 
         carregarProductes()
 
@@ -59,6 +52,7 @@ class LlistarFragment : Fragment() {
                 productesList.clear()
                 for (document in documents) {
                     val producte = document.toObject(Producte::class.java)
+                    producte.id = document.id
                     productesList.add(producte)
                 }
                 producteAdapter.notifyDataSetChanged()
@@ -67,4 +61,5 @@ class LlistarFragment : Fragment() {
                 Toast.makeText(requireContext(), "Error: ${exception.message}", Toast.LENGTH_SHORT).show()
             }
     }
+
 }

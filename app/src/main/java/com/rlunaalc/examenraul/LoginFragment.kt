@@ -33,7 +33,7 @@ class LoginFragment : Fragment() {
                 firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener{
                     if (it.isSuccessful){
                         Toast.makeText(requireContext(), "Log in successfully!", Toast.LENGTH_SHORT).show()
-                        findNavController().navigate(R.id.nav_home)
+                        findNavController().navigate(R.id.llistarFragment)
                     }else {
                         Toast.makeText(requireContext(), it.exception.toString(), Toast.LENGTH_SHORT).show()
                     }
